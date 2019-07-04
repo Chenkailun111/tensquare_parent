@@ -1,0 +1,8 @@
+ai:
+  #合并后的分词语料库
+  wordLib: e:\\article.txt
+  dataPath: e:\\article
+  # 词向量模型
+  vecModel: e:\\article.vecmodel
+  # 卷积神经网络模型
+  cnnModel: e:\\article.cnnmodel

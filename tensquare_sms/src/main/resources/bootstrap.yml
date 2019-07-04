@@ -1,0 +1,13 @@
+server:
+  port: 9009
+spring:
+  application:
+    name: tensquare-sms
+  rabbitmq:
+    host: 192.168.43.54
+aliyun:
+  sms:
+    accessKeyId: LTAIxg10KKt5JXme
+    accessKeySecret: LdSQHfIYAf0C5tz7OY4STq0Dx8HFw3
+    template_code: SMS_165055019
+    sign_name: 千锋

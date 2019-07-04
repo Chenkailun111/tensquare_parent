@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: tensquare-base #giee name
+      profile: dev #版本
+      label: master  #分支
+      uri: http://127.0.0.1:12000  #配置文件到本地config中心获取，然后到码云上去
