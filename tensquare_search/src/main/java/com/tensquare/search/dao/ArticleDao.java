@@ -12,6 +12,6 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 public interface ArticleDao extends ElasticsearchRepository<Article,String> {
 
     //根据关键字查询文章
-    public Page<Article> findByTitleOrContent(String title, String content, Pageable pageable);
+    public Page<Article> findByTitleOrContentLike(String title, String content, Pageable pageable);
 
 }

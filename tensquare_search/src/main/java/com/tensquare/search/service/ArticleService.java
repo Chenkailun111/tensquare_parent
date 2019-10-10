@@ -38,7 +38,7 @@ public class ArticleService {
     public PageResult findByKeywords(String keywords,int page,int size){
         PageRequest pageRequest=PageRequest.of(page-1,size);
         //title或者是内容进行搜索
-        Page<Article> pageList = articleDao.findByTitleOrContent(keywords, keywords, pageRequest);
+        Page<Article> pageList = articleDao.findByTitleOrContentLike(keywords, keywords, pageRequest);
         return new PageResult<>(pageList.getTotalElements(),pageList.getContent());
     }
 
