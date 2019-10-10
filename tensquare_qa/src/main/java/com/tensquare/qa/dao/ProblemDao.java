@@ -38,12 +38,12 @@ public interface ProblemDao extends JpaRepository<Problem,String>,JpaSpecificati
 
 
     /**
-     * 等待回答列表
+     * 等待回答列表,回复为0就是没有回答过
      * @param labelId
      * @param pageable
      * @return
      */
-    @Query("select p from Problem p where id in  (select problemid from Pl where labelid=?1 ) and reply=0  order by createtime desc")
+    @Query(value = "select p from Problem p where id in  (select problemid from Pl where labelid=?1 ) and reply=0  order by createtime desc")
     public Page<Problem> findWaitListByLabelId(String labelId, Pageable pageable);
 
 

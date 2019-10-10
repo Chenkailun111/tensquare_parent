@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import java.util.List;
 
 /**
- * 标签数据访问接口
+ * 标签数据访问接口，SpringData ，就是JpaRepository
  */
 public interface LabelDao extends JpaRepository<Label,String> , JpaSpecificationExecutor<Label> {
 

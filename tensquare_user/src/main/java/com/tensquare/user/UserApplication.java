@@ -13,6 +13,7 @@ public class UserApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UserApplication.class, args);
+		System.out.println("启动了");
 	}
 
 	@Bean

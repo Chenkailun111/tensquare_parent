@@ -190,9 +190,8 @@ public class UserService {
 		if(code<min){
 			code=code+min;
 		}
-		System.out.println(mobile+ "收到验证码："+code);
 
-		//2.将验证码存入redis
+		//2.将验证码存入redis,key-value,时间
 		redisTemplate.opsForValue().set("smscode_"+mobile,code+"",5, TimeUnit.MINUTES);
 
 		//3.将验证码和手机号发送到rabbitMQ
@@ -200,6 +199,10 @@ public class UserService {
 		map.put("mobile",mobile);
 		map.put("smscode",code+"");
 		rabbitTemplate.convertAndSend("sms",map);
+		//TODO 测试
+		String s = (String) redisTemplate.opsForValue().get("smscode_" + mobile);
+		System.out.println(mobile+ "收到验证码："+code);
+		System.out.println("redis的值"+s);
 	}
 
 

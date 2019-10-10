@@ -14,7 +14,6 @@ import com.tensquare.user.service.AdminService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
-import util.JwtUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -107,8 +106,8 @@ public class AdminController {
 		return new Result(true,StatusCode.OK,"删除成功");
 	}
 
-	@Autowired
-	private JwtUtil jwtUtil;
+	/*@Autowired
+	private JwtUtil jwtUtil;*/
 
 	/**
 	 *  登陆
@@ -120,9 +119,9 @@ public class AdminController {
 		Admin admin = adminService.findByLoginnameAndPassword(loginMap.get("loginname"), loginMap.get("password"));
 		if(admin!=null){
 			//生成令牌环
-            String token = jwtUtil.createJWT(admin.getId(), admin.getLoginname(), "admin");
+           // String token = jwtUtil.createJWT(admin.getId(), admin.getLoginname(), "admin");
             Map map=new HashMap();
-            map.put("token",token);
+            //map.put("token",token);
             map.put("name",admin.getLoginname());
 
             return new Result(true,StatusCode.OK,"登陆成功",map);

@@ -75,7 +75,9 @@ public class GatheringService {
 	}
 
 	/**
-	 * 根据ID查询实体
+	 * 根据ID查询实体，使用springCache进行缓存
+	 * 在GatheringService的findById方法添加缓存注解，
+	 * 这样当此方法第一次运行，在缓存中没有找到对应的value和key，则将查询结果放入缓存。
 	 * @param id
 	 * @return
 	 */
@@ -94,7 +96,10 @@ public class GatheringService {
 	}
 
 	/**
-	 * 修改
+	 * 修改当我们对数据进行删改的时候，需要更新缓存。
+	 * 其实更新缓存也就是清除缓存，因为清除缓存后，
+	 * 用户再次调用查询方法无法提取缓存会重新查找数据库中的记录并放入缓存。
+	 * 在GatheringService的update、deleteById方法上添加清除缓存的注解
 	 * @param gathering
 	 */
 	@CacheEvict(value = "gathering",key="#gathering.id")

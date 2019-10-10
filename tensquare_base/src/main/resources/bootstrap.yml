@@ -1,7 +1,31 @@
+server:
+  port: 9001
 spring:
-  cloud:
-    config:
-      name: tensquare-base #giee name
-      profile: dev #版本
-      label: master  #分支
-      uri: http://127.0.0.1:12000  #配置文件到本地config中心获取，然后到码云上去
+  application:
+    name: tensquare-base #指定服务名
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.43.72:3306/tensquare_article?characterEncoding=UTF8
+    username: root
+    password: 123456
+  jpa:
+    database: MySQL
+    show-sql: true
+  rabbitmq:
+    host: 192.168.184.135
+sms:
+  ip: 127.0.0.1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka
+  instance:
+    prefer-ip-address: true #支持服务器跨域访问
+
+#spring:
+#  cloud:
+#    config:
+#      name: tensquare-base #giee name
+#      profile: dev #版本
+#      label: master  #分支
+#      uri: http://127.0.0.1:12000  #配置文件到本地config中心获取，然后到码云上去

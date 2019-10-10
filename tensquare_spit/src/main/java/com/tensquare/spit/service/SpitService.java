@@ -54,13 +54,21 @@ public class SpitService {
         spit.setComment(0);//评论数
         spit.setState("1");//状态
 
-        //评论处理
-        if(spit.getParentid()!=null &&  !"".equals(spit.getParentid())   ){
+        /**
+         * 逻辑，最开始添加一条记录，没有父节点，
+         * 然后下面的回复中，添加一条回复，判断父结点，回复数+1
+         */
+        //评论处理，如果当前添加的吐槽有父节点，就将父节点的评论数+1
+        //比如某个大类下的评论或某个人的回复吐槽
+        if(spit.getParentid()!=null &&  !"".equals(spit.getParentid())){
             Query query=new Query();
+            //添加条件，为父节点时，评论数+1
             query.addCriteria(Criteria.where("_id").is(spit.getParentid()));
             Update update=new Update();
+            //父节点评论数+1
             update.inc("comment",1);
             mongoTemplate.updateFirst(query,update,"spit");
+
         }
 
         spitDao.save(spit);

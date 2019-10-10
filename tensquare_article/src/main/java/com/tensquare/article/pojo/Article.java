@@ -25,15 +25,15 @@ public class Article implements Serializable{
 	private String image;//文章封面
 	private java.util.Date createtime;//发表日期
 	private java.util.Date updatetime;//修改日期
-	private String ispublic;//是否公开
-	private String istop;//是否置顶
+	private String ispublic;//是否公开 0：不公开 1：公开
+	private String istop;//是否置顶  0：不置顶 1：置顶
 	private Integer visits;//浏览量
 	private Integer thumbup;//点赞数
 	private Integer comment;//评论数
-	private String state;//审核状态
-	private String channelid;//所属频道
+	private String state;//审核状态  0：未审核 1：已审核
+	private String channelid;//所属频道  关联频道表ID
 	private String url;//URL
-	private String type;//类型
+	private String type;//类型  0：分享 1：专栏
 
 	
 	public String getId() {		

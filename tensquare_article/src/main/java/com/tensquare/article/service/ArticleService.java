@@ -32,7 +32,7 @@ import com.tensquare.article.pojo.Article;
  * 服务层
  * 
  * @author Administrator
- *
+ *  findById方法 ，实际设置1天的过期时间
  */
 @Service
 public class ArticleService {
@@ -81,7 +81,7 @@ public class ArticleService {
 	private RedisTemplate redisTemplate;
 
 	/**
-	 * 根据ID查询实体
+	 * 根据ID查询实体，文章很多可以走一下缓存
 	 * @param id
 	 * @return
 	 */
@@ -108,7 +108,7 @@ public class ArticleService {
 	}
 
 	/**
-	 * 修改
+	 * 修改/删除都要先删除对应的缓存
 	 * @param article
 	 */
 	public void update(Article article) {

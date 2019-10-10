@@ -1,6 +1,5 @@
 package com.tensquare.user.controller;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import io.jsonwebtoken.Claims;
@@ -19,7 +18,6 @@ import com.tensquare.user.service.UserService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
-import util.JwtUtil;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -105,8 +103,8 @@ public class UserController {
 	@Autowired
 	private HttpServletRequest request;
 
-	@Autowired
-	private JwtUtil jwtUtil;
+//	@Autowired
+//	private JwtUtil jwtUtil;
 
 	/**
 	 * 删除
@@ -149,6 +147,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/sendsms/{mobile}",method = RequestMethod.POST)
 	public Result sendSms(@PathVariable String mobile){
+		System.out.println("接收到短信发送");
 		userService.sendSms(mobile);
 		return new Result(true,StatusCode.OK,"发送成功");
 	}
@@ -177,10 +176,10 @@ public class UserController {
 		User user = userService.findByMobileAndPassword(map.get("mobile"), map.get("password"));
 		if(user!=null){
 			//登录的时候生成一个token，其他地方如果需要用户认证可以用这个令牌环。
-			String token = jwtUtil.createJWT(user.getId(), user.getNickname(), "user");
+			//String token = jwtUtil.createJWT(user.getId(), user.getNickname(), "user");
 
 			Map map1=new HashMap();
-			map1.put("token",token);
+			//map1.put("token",token);
 			map1.put("name",user.getNickname());//昵称
 			map1.put("avatar",user.getAvatar());//头像
 

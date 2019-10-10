@@ -19,7 +19,6 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-
     @RequestMapping(method = RequestMethod.POST)
     public Result save( @RequestBody Article article){
         articleService.add(article);
@@ -29,14 +28,13 @@ public class ArticleController {
 
     /**
      *  搜索
-     * @param map
      * @param page
      * @param size
      * @return
      */
-    @RequestMapping(value = "/search/{page}/{size}",method = RequestMethod.POST)
-    public Result findByKeywords(@RequestBody Map<String,String> map ,@PathVariable int page,@PathVariable int size ){
-        PageResult pageResult = articleService.findByKeywords(map.get("keywords"), page, size);
+    @RequestMapping(value = "/{search}/{page}/{size}",method = RequestMethod.POST)
+    public Result findByKeywords(@PathVariable String search,@PathVariable int page,@PathVariable int size ){
+        PageResult pageResult = articleService.findByKeywords(search, page, size);
         return new Result(true,StatusCode.OK,"查询成功",pageResult);
     }
 }

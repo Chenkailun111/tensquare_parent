@@ -5,4 +5,4 @@ spring:
     name: tensquare‐search #服务器名字
   data:
     elasticsearch:
-      cluster-nodes: 100.95.233.20:9300
+      cluster-nodes: 127.0.0.1:9300

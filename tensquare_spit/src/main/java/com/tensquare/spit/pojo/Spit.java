@@ -21,7 +21,7 @@ public class Spit implements Serializable {
     private Integer thumbup;//点赞数
     private Integer share;//分享数
     private Integer comment;//回复数
-    private String state;//状态
+    private String state;//状态 是否可见
     private String parentid;// 上级ID
 
 

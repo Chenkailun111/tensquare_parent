@@ -1,7 +1,32 @@
+server:
+  port: 9004
 spring:
-  cloud:
-    config:
-      name: article #giee name
-      profile: dev #版本
-      label: master  #分支
-      uri: http://127.0.0.1:12000  #配置文件到本地config中心获取，然后到码云上去
+  application:
+    name: tensquare-article #指定服务名
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.43.72:3306/tensquare_article?characterEncoding=UTF8
+    username: root
+    password: 123456
+  jpa:
+    database: MySQL
+    show-sql: true
+  redis:
+    host: 192.168.43.72
+  data:
+    mongodb:
+      host: 127.0.0.1
+      database: recruitdb
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka #服务注册到eureka上面
+  instance:
+    prefer-ip-address: true #支持服务器跨域访问
+#spring:
+#  cloud:
+#    config:
+#      name: article #giee name
+#      profile: dev #版本
+#      label: master  #分支
+#      uri: http://127.0.0.1:12000  #配置文件到本地config中心获取，然后到码云上去

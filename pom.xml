@@ -45,6 +45,7 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+        <!--springboot项目包-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -55,10 +56,17 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
-
+        <!--springcloud总版本管理-->
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -67,21 +75,25 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+
         </dependencies>
 
     </dependencyManagement>
 
     <repositories>
+        <!--spring-snapshots代表开发版本，可能更新，要标明自己的id-->
         <repository>
             <id>spring-snapshots</id>
             <name>Spring Snapshots</name>
             <url>https://repo.spring.io/snapshot</url>
             <snapshots>
-
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+
         <repository>
+            <!--spring-milestones发布里程碑版本,里程碑版本不会在maven仓库中进行发布-->
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>

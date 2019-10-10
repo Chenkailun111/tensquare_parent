@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * 配置拦截器
  * 处理用户登录jwt验证，处理token信息是否正确
  */
 @Component

@@ -1,7 +1,28 @@
+server:
+  port: 9002
 spring:
-  cloud:
-    config:
-      name: tensquare-recruit
-      profile: dev
-      label: master
-      uri: http://localhost:12000
+  application:
+    name: tensquare-recruit #指定服务名
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.43.72:3306/tensquare_article?characterEncoding=UTF8
+    username: root
+    password: 123456
+  jpa:
+    database: MySQL
+    show-sql: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka
+  instance:
+    prefer-ip-address: true #支持服务器跨域访问
+
+
+#spring:
+#  cloud:
+#    config:
+#      name: tensquare-recruit
+#      profile: dev
+#      label: master
+#      uri: http://localhost:12000

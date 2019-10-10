@@ -4,10 +4,10 @@ spring:
   application:
     name: tensquare-sms
   rabbitmq:
-    host: 192.168.43.54
+    host: 192.168.241.128
 aliyun:
   sms:
     accessKeyId: LTAIxg10KKt5JXme
-    accessKeySecret: LdSQHfIYAf0C5tz7OY4STq0Dx8HFw3
-    template_code: SMS_165055019
-    sign_name: 千锋
+    accessKeySecret: LdSQHfIYAf0C5tz7OY4STq0Dx8HFw3 #aliyun短信中查找
+    template_code: SMS_172206959  #短信模板的code
+    sign_name: 传智黑马  #申请的短信签名

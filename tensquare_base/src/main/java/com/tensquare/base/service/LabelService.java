@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 标准来说是要创建一个service接口的
+ */
 @Service
 public class LabelService {
 

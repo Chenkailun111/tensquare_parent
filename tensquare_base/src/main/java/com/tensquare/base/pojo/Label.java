@@ -12,11 +12,11 @@ public class Label {
 
     private String labelname;//标签名称
 
-    private String state;//状态
+    private String state;//状态0：无效 1：有效
 
     private Long count;//使用数量
 
-    private String recommend;//是否推荐
+    private String recommend;//是否推荐0：不推荐 1:推荐
 
     private Long fans;//关注数
 
