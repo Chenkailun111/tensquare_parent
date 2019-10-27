@@ -9,9 +9,9 @@ import util.IdWorker;
 import util.JwtUtil;
 
 @SpringBootApplication
-@EnableDiscoveryClient
+@EnableDiscoveryClient //eureka客户端使用,也可以是其他的注册中心
 @EnableFeignClients // 发现服务以fegin的方式
-@EnableEurekaClient
+//@EnableEurekaClient 仅仅使用eureka的时候的注解
 public class QaApplication {
 
 	public static void main(String[] args) {

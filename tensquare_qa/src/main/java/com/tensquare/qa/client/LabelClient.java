@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //发生错的回调方法：fallback
 @FeignClient(value="tensquare-base",fallback = LabelClientImpl.class)
 public interface LabelClient {
-
     /**
      *  根据ID查询标签
      *  @PathVariable("id")必须加上

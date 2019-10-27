@@ -6,6 +6,13 @@ import java.util.List;
  * 分页结果类
  */
 public class PageResult<T> {
+    @Override
+    public String toString() {
+        return "PageResult{" +
+                "total=" + total +
+                ", rows=" + rows +
+                '}';
+    }
 
     private Long total;//总记录数
     private List<T> rows;//记录

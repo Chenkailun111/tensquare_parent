@@ -18,6 +18,7 @@ import com.tensquare.user.service.UserService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import util.JwtUtil;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -103,8 +104,8 @@ public class UserController {
 	@Autowired
 	private HttpServletRequest request;
 
-//	@Autowired
-//	private JwtUtil jwtUtil;
+	@Autowired
+	private JwtUtil jwtUtil;
 
 	/**
 	 * 删除
@@ -130,6 +131,7 @@ public class UserController {
             return new Result(false,StatusCode.ACCESSERROR,"权限不足");
         }
 */
+	    //TODO 可能有错误
 	    Claims claims=(Claims)  request.getAttribute("admin_claims");
 	    if(claims==null){
             return new Result(false,StatusCode.ACCESSERROR,"权限不足");
@@ -176,7 +178,7 @@ public class UserController {
 		User user = userService.findByMobileAndPassword(map.get("mobile"), map.get("password"));
 		if(user!=null){
 			//登录的时候生成一个token，其他地方如果需要用户认证可以用这个令牌环。
-			//String token = jwtUtil.createJWT(user.getId(), user.getNickname(), "user");
+			String token = jwtUtil.createJWT(user.getId(), user.getNickname(), "user");
 
 			Map map1=new HashMap();
 			//map1.put("token",token);

@@ -10,6 +10,7 @@ eureka:
   instance:
     prefer‐ip‐address: true
 zuul:
+#  prefix: /api #路由前缀
   routes:
     tensquare‐gathering: #活动
       path: /gathering/** #配置请求URL的请求规则
@@ -38,3 +39,5 @@ zuul:
     tensquare‐search: #用户
       path: /search/** #配置请求URL的请求规则
       serviceId: tensquare‐search #指定Eureka注册中心中的服务id
+  retryable: true
+

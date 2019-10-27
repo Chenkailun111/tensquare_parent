@@ -48,17 +48,18 @@ public class ManagerFilter extends ZuulFilter {
             return null;
         }
         String url = request.getRequestURL().toString();
-        if(url.indexOf("/admin/login")>0){
+        if(url.indexOf("/admin/login")>=0){
             //登录放行
             System.out.println("登陆页面");
             return null;
         }
+        //不是登录，后台登录接口请求鉴权
         String authHeader = request.getHeader("Authorization");
         if(authHeader!=null && authHeader.startsWith("Bearer ") ){
             String token = authHeader.substring(7);
             Claims claims = jwtUtil.parseJWT(token);
             if(claims!=null){
-                if("admin".equals(claims.get("roles"))){
+                if("admin_claims".equals(claims.get("roles"))){
                     //把头信息转发下去并放行
                     requestContext.addZuulRequestHeader("Authorization",authHeader);
                     System.out.println("token 验证通过，添加了头信息："+authHeader);

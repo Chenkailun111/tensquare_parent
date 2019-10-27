@@ -13,3 +13,4 @@ public class StatusCode {
     public static final int REPERROR =20005;//重复操作
 
 }
+

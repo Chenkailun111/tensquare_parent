@@ -102,7 +102,7 @@ public class GatheringService {
 	 * 在GatheringService的update、deleteById方法上添加清除缓存的注解
 	 * @param gathering
 	 */
-	@CacheEvict(value = "gathering",key="#gathering.id")
+	@CacheEvict(value = "gathering",key = "#gathering.id")
 	public void update(Gathering gathering) {
 		gatheringDao.save(gathering);
 	}

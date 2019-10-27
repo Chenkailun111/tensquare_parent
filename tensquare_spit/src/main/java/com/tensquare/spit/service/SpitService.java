@@ -102,9 +102,24 @@ public class SpitService {
         return  spitDao.findByParentid(parentid,pageRequest);
     }
 
+
+
+    /**
+     *点赞
+     *@param id
+     */
+    public void updateThumbup(String id){
+        Spit spit = spitDao.findById(id).get();
+        spit.setThumbup(spit.getThumbup()+1);
+        spitDao.save(spit);
+    }
+
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    /*以上方法虽然实现起来比较简单，但是执行效率并不高，
+    因为我只需要将点赞数加1就可以了，没必要查询出所有字段修改后再更新所有字段。
+    我们可以使用MongoTemplate类来实现对某列的操作。*/
     /**
      * 点赞
      * @param id

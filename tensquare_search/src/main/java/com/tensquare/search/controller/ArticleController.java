@@ -19,12 +19,11 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/save",method = RequestMethod.POST)
     public Result save( @RequestBody Article article){
         articleService.add(article);
         return new Result(true, StatusCode.OK,"添加成功");
     }
-
 
     /**
      *  搜索
@@ -32,7 +31,7 @@ public class ArticleController {
      * @param size
      * @return
      */
-    @RequestMapping(value = "/{search}/{page}/{size}",method = RequestMethod.POST)
+    @RequestMapping(value = "/{search}/{page}/{size}",method = RequestMethod.GET)
     public Result findByKeywords(@PathVariable String search,@PathVariable int page,@PathVariable int size ){
         PageResult pageResult = articleService.findByKeywords(search, page, size);
         return new Result(true,StatusCode.OK,"查询成功",pageResult);

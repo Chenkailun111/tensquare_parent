@@ -24,6 +24,8 @@ public class FriendController {
 
     /**
      * 添加好友
+     * 表设计：
+     *    friend：
      * @param friendid
      * @param type
      * @return

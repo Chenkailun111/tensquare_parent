@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/jackwolfman/tensquare-dev.git
+          uri: https://gitee.com/jackwolfman/tensquare_dev.git
   rabbitmq:
     host: 192.168.43.72
 management: #暴露触发消息总线的地址

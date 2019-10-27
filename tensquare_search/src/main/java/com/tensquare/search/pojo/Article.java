@@ -55,4 +55,14 @@ public class Article {
     public void setState(String state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", state='" + state + '\'' +
+                '}';
+    }
 }
