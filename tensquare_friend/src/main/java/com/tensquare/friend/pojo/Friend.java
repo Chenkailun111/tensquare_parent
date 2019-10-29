@@ -20,6 +20,7 @@ public class Friend implements Serializable {
     @Id
     private String friendid;
 
+    // 0 单向喜欢 1双向喜欢
     private String islike;
 
     public String getUserid() {
