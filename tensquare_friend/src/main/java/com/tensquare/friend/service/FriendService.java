@@ -36,7 +36,7 @@ public class FriendService {
             friendDao.updateLike(userid,friendid,"1");
             friendDao.updateLike(friendid,userid,"1");
         }
-        //添加好友，好友关注数加1，用户自己关注数+1
+        //添加好友，好友粉丝数加1，用户自己关注数+1
         userClient.incFanscount(friendid,1);
         userClient.incFollowcount(userid,1);
 
@@ -65,7 +65,9 @@ public class FriendService {
     public void deleteFriend(String userid,String friendid){
         friendDao.deleteFriend(userid,friendid);
         friendDao.updateLike(friendid,userid,"0");
-        addNoFriend(userid,friendid);
+
+        //添加非好友表，可能是黑名单处理，在下次申请添加好友的时候。
+        //addNoFriend(userid,friendid);
         //变更用户的粉丝数与关注数
         userClient.incFanscount(friendid,-1);
         userClient.incFollowcount(userid,-1);

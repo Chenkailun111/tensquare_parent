@@ -197,6 +197,7 @@ public class ProblemService {
 	public Page<Problem> findWaitListByLabelId(String labelId,int page,int size){
 		PageRequest pageRequest=PageRequest.of(page-1,size);
 		if(labelId.equals("0")){
+			//没有传分类，时间展示问题，有传分类，分类查询问题
 			return problemDao.findWaitList(pageRequest);
 		}else{
 			return problemDao.findWaitListByLabelId(labelId,pageRequest);
